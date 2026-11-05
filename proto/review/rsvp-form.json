@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "key": "rsvp-form",
+  "sequence": 0,
+  "review": {
+    "status": "approved",
+    "updatedAt": "2026-11-05T15:22:59.632Z"
+  },
+  "events": [
+    {
+      "id": "85bd966e-c21d-461d-adb3-60238547ab49",
+      "type": "approved",
+      "at": "2026-11-05T15:22:59.632Z",
+      "author": "reviewer",
+      "commit": "72aab2bdc8fe6d745c3818a345d9e581cda1e303",
+      "openCount": 0
+    }
+  ],
+  "comments": []
+}

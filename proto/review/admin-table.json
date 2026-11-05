@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "key": "admin-table",
+  "sequence": 0,
+  "review": {
+    "status": "approved",
+    "updatedAt": "2026-11-05T15:23:04.051Z"
+  },
+  "events": [
+    {
+      "id": "1f8db88a-c9fe-4d79-ac09-7f7ea0078458",
+      "type": "approved",
+      "at": "2026-11-05T15:23:04.051Z",
+      "author": "reviewer",
+      "commit": "72aab2bdc8fe6d745c3818a345d9e581cda1e303",
+      "openCount": 0
+    }
+  ],
+  "comments": []
+}

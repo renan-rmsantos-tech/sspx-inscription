@@ -137,6 +137,7 @@ Nenhum `vercel.json` é necessário.
 | `pnpm start`   | Serve o build local                       |
 | `pnpm lint`    | ESLint                                    |
 | `pnpm db:push` | Sincroniza o schema Drizzle com o Postgres |
+| `pnpm proto dev` | Galeria de protótipos em `http://127.0.0.1:4490` |
 
 ## Estrutura
 
@@ -152,4 +153,7 @@ lib/
   cookie.ts       # assinatura HMAC do cookie admin
   deadline.ts     # data limite de inscrição
 proxy.ts          # middleware do Next 16 (protege /admin)
+proto/            # shims de next/* e CSS da galeria de protótipos
 ```
+
+Protótipos das telas (`@compozy/proto`): veja `docs/design/prototyping.md`.

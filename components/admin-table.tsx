@@ -4,7 +4,6 @@ import { useState, useMemo, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Rsvp } from '@/lib/db/schema'
 import { normalizeName } from '@/lib/duplicates'
-import { deleteRsvp } from '@/app/actions/rsvp'
 
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', {
   day: '2-digit',
@@ -31,12 +30,15 @@ function relativeTime(date: Date): string {
 
 type Filter = 'all' | 'today' | 'duplicates'
 
+/** Lista do painel. `onDelete` é a server action `deleteRsvp`, entregue pela página. */
 export function AdminTable({
   rows,
   duplicates,
+  onDelete,
 }: {
   rows: Rsvp[]
   duplicates: Set<string>
+  onDelete: (code: string) => Promise<unknown>
 }) {
   const router = useRouter()
   const [search, setSearch] = useState('')
@@ -241,7 +243,7 @@ export function AdminTable({
                 onClick={() => {
                   if (!confirm(`Excluir inscrição de ${row.name}?`)) return
                   startDelete(async () => {
-                    await deleteRsvp(row.code)
+                    await onDelete(row.code)
                     router.refresh()
                   })
                 }}

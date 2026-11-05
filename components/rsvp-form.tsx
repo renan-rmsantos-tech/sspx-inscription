@@ -2,12 +2,24 @@
 
 import { useState, useTransition, type ReactNode } from 'react'
 import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
+import { useForm, type FieldErrors } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { submitRsvp } from '@/app/actions/rsvp'
-import { rsvpSchema, type RsvpInput } from '@/lib/validators/rsvp'
+import { rsvpSchema, type RsvpInput, type RsvpResult } from '@/lib/validators/rsvp'
 
-export function RsvpForm() {
+/**
+ * Ficha de inscrição. `submit` é a server action `submitRsvp`, entregue pela
+ * página; `defaultValues` e `errors` abrem a ficha já preenchida ou com erros
+ * (a galeria de protótipos usa os dois).
+ */
+export function RsvpForm({
+  submit,
+  defaultValues,
+  errors: initialErrors,
+}: {
+  submit: (input: RsvpInput) => Promise<RsvpResult>
+  defaultValues?: Partial<RsvpInput>
+  errors?: FieldErrors<RsvpInput>
+}) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const [serverError, setServerError] = useState<string | null>(null)
@@ -27,7 +39,9 @@ export function RsvpForm() {
       phone: '',
       adults: 1,
       children: 0,
+      ...defaultValues,
     },
+    errors: initialErrors,
     mode: 'onSubmit',
   })
 
@@ -41,7 +55,7 @@ export function RsvpForm() {
     setServerError(null)
     startTransition(async () => {
       try {
-        const result = await submitRsvp(data)
+        const result = await submit(data)
         if (result.ok) {
           router.push(`/confirmacao/${encodeURIComponent(result.code)}`)
           return

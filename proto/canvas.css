@@ -1,0 +1,12 @@
+/*
+ * O app carrega Lora, Playfair Display e Cormorant Garamond pelo `next/font`,
+ * que não roda no Vite. Na galeria as mesmas famílias vêm do Google Fonts, com
+ * as variáveis que `app/globals.css` espera; sem rede, caem na serifa do sistema.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+:root {
+  --font-lora: "Lora", ui-serif, Georgia, serif;
+  --font-playfair-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-cormorant-garamond: "Cormorant Garamond", ui-serif, Georgia, serif;
+}

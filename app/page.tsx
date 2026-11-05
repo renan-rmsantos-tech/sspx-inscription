@@ -1,5 +1,6 @@
 import { isBeforeDeadline } from "@/lib/deadline";
 import { RsvpForm } from "@/components/rsvp-form";
+import { submitRsvp } from "@/app/actions/rsvp";
 
 const INFO_ITEMS = [
   {
@@ -352,7 +353,7 @@ export default async function Home() {
               </ul>
             </div>
             <div className="flex-1 min-w-0">
-              <RsvpForm />
+              <RsvpForm submit={submitRsvp} />
             </div>
           </>
         ) : (

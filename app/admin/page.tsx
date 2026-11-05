@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { rsvps } from '@/lib/db/schema'
 import { findDuplicateNames } from '@/lib/duplicates'
 import { adminLogout } from '@/app/actions/auth'
+import { deleteRsvp } from '@/app/actions/rsvp'
 import { AdminTable } from '@/components/admin-table'
 
 export const runtime = 'nodejs'
@@ -194,7 +195,7 @@ export default async function AdminPage() {
         </div>
 
         {/* Table */}
-        <AdminTable rows={list} duplicates={duplicates} />
+        <AdminTable rows={list} duplicates={duplicates} onDelete={deleteRsvp} />
       </section>
     </main>
   )

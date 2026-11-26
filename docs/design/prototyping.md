@@ -5,7 +5,7 @@ prototypes: ["app/**/*.proto.tsx", "components/**/*.proto.tsx", "drafts/**/*.pro
 entry: "drafts/{slug}/index.proto.tsx"
 providers: proto.canvas.tsx
 dev: pnpm proto dev
-preview: "http://127.0.0.1:4491/__proto/render/{slug}?chrome=0"
+preview: "proto url {slug} --bare"
 evidence: "pnpm proto evidence {slug} --state <id>"
 output: "docs/design/{slug}/"
 ---

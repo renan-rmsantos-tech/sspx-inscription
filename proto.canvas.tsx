@@ -1,7 +1,7 @@
 import "./app/globals.css";
 import "./proto/canvas.css";
 
-import type { CanvasProps, FrameProps } from "@compozy/proto";
+import type { CanvasProps, FrameProps } from "@protohq/cli";
 
 /**
  * O layout raiz (`app/layout.tsx`) só aplica `globals.css`, as fontes e o

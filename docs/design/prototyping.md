@@ -1,6 +1,6 @@
 ---
 target: library
-host: vite-app # galeria @compozy/proto ao lado do app Next, com vite.config.ts próprio
+host: vite-app # galeria @protohq/cli ao lado do app Next, com vite.config.ts próprio
 prototypes: ["app/**/*.proto.tsx", "components/**/*.proto.tsx", "drafts/**/*.proto.tsx"]
 entry: "drafts/{slug}/index.proto.tsx"
 providers: proto.canvas.tsx
@@ -12,14 +12,14 @@ output: "docs/design/{slug}/"
 
 # Protótipos
 
-A galeria `@compozy/proto` renderiza as views reais do app com fixtures, um estado
+A galeria `@protohq/cli` renderiza as views reais do app com fixtures, um estado
 por vez, e guarda os comentários de revisão em `proto/review/`. As skills `proto` e
 `proto-apply-comments` descrevem autoria, revisão e a CLI; as regras deste projeto
 ficam aqui e no `AGENTS.md`.
 
 ```bash
-pnpm proto dev               # galeria em http://127.0.0.1:4490 (render em :4491)
-PROTO_PORT=4500 pnpm proto dev   # outra porta, se 4490/4491 estiverem ocupadas
+pnpm proto dev               # galeria em http://127.0.0.1:4400/p/<projeto>/
+PROTOHQ_PORT=4500 pnpm proto start   # outra porta (rode `pnpm proto stop` antes)
 pnpm proto check --json      # valida meta, guards e compilação; rode antes da revisão
 pnpm proto screenshot admin-table --state nomes-longos
 ```
@@ -42,7 +42,7 @@ ln -sfn ../../.agents/skills/proto .claude/skills/proto
 ln -sfn ../../.agents/skills/proto-apply-comments .claude/skills/proto-apply-comments
 ```
 
-Rode `pnpm proto init --skills` de novo depois de atualizar `@compozy/proto`.
+Rode `pnpm proto init --skills` de novo depois de atualizar `@protohq/cli`.
 
 ## Onde ficam
 

@@ -33,7 +33,7 @@
     ]
   },
   "devDependencies": {
-    "@compozy/proto": "^0.1.6",
+    "@protohq/cli": "0.3.0",
     "@tailwindcss/postcss": "^4",
     "@types/bcryptjs": "^3.0.0",
     "@types/node": "^20",

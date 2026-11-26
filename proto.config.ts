@@ -1,4 +1,4 @@
-import { defineProtoConfig } from "@compozy/proto/config";
+import { defineProtoConfig } from "@protohq/cli/config";
 
 /** Galeria de protótipos: `pnpm proto dev` (veja docs/design/prototyping.md). */
 export default defineProtoConfig({
@@ -6,7 +6,6 @@ export default defineProtoConfig({
   locale: "pt-BR",
   prototypes: ["app/**/*.proto.tsx", "components/**/*.proto.tsx", "drafts/**/*.proto.tsx"],
   drafts: "drafts",
-  dev: { port: 4490 },
   guards: {
     // Protótipos e drafts renderizam views com fixtures: nunca alcançam banco,
     // sessão do painel (cookie assinado, bcrypt), server actions, a rota de CSV

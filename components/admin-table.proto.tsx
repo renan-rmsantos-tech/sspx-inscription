@@ -1,4 +1,4 @@
-import { definePrototype, type PrototypeProps } from "@compozy/proto";
+import { definePrototype, type PrototypeProps } from "@protohq/cli";
 import { AdminTable } from "./admin-table";
 import { DUPLICADAS, DUPLICADAS_LONGOS, NOMES_LONGOS, REGISTROS } from "./admin-table.fixtures";
 
